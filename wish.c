@@ -143,6 +143,7 @@ int main (int argc, char * argv[]){
 					execv(path, arguments);
 					// Print error if process returns from execv
 					errormsg(2);
+					exit(1);
 					continue;
 				} else {
 					// If no access from 1st one, try with /usr/bin/command
@@ -151,10 +152,12 @@ int main (int argc, char * argv[]){
 						execv(altpath, arguments);
 						// Print error if process returns from execv
 						errormsg(2);
+						exit(1);
 						continue;
 					}
 					// If still no access, print error
 					errormsg(2);
+					exit(1);
 					continue;
 				}
 
